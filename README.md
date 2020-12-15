@@ -7,8 +7,8 @@ l’opció per a eliminar.
 * Ha d’incloure un rellotge (analògic o digital), realitzat per vosaltres, que mostri l’hora i la
 data. Si és digital, ha de permetre canviar entre mode 24 hores o AM/PM fent doble clic
 a sobre.
- * Practica de JS -> rellotge digital
- * w3schools -> rellotge analogic
+ ** Practica de JS -> rellotge digital
+ ** w3schools -> rellotge analogic
 
 * S’ha de poder escollir la data del viatge de forma dinàmica mitjançant una graella de
 calendari, és a dir, s’ha d’evitar poder afegir la data manualment. Per defecte la data
