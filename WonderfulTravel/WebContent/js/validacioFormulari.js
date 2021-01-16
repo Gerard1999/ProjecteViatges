@@ -38,20 +38,10 @@ function omplirPreuFoto(){
         var pais = continents[i].paisos[x].nom;
         if (pais == paisSelect) {
           var preu = continents[i].paisos[x].preu;
-          
-          var descompte =  document.getElementById("descompte").checked;
-          if (descompte) {
-            document.getElementById("preu").value = preu - ((parseInt(preu) * 20) / 100).toString() + ",00€";
-          } else {
-            document.getElementById("preu").value = continents[i].paisos[x].preu + ",00€";
-          }
+          comprovaDescompte(preu)
           document.getElementById("descompte").addEventListener('change', (event) => {
             var descompte =  document.getElementById("descompte").checked;
-            if (descompte) {
-              document.getElementById("preu").value = preu - ((parseInt(preu) * 20) / 100).toString() + ",00€";
-            } else {
-              document.getElementById("preu").value = continents[i].paisos[x].preu + ",00€";
-            }
+            comprovaDescompte(preu)
           });
           document.getElementById("foto").innerHTML = "<img height=250 src='" + continents[i].paisos[x].img + "'>";
         }
@@ -61,5 +51,12 @@ function omplirPreuFoto(){
 }
 
 
-
+function comprovaDescompte(preu){
+  var descompte =  document.getElementById("descompte").checked;
+  if (descompte) {
+    document.getElementById("preu").value = preu - ((parseInt(preu) * 20) / 100).toString() + ",00€";
+  } else {
+    document.getElementById("preu").value = preu + ",00€";
+  }
+}
 
