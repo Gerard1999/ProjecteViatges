@@ -2,7 +2,7 @@
 
 //Afegir els continents a la llista
 function omplirContinents(){
-  var llistaContinents = "";
+  var llistaContinents = "<option disabled selected>Continents</option>";
   for (var i = 0; i < continents.length; i++) {
     llistaContinents += "<option value'" + continents[i].continent + "'>" + continents[i].continent + "</option>";
   }
@@ -41,14 +41,14 @@ function omplirPreuFoto(){
           
           var descompte =  document.getElementById("descompte").checked;
           if (descompte) {
-            document.getElementById("preu").value = ((parseInt(preu) * 20) / 100).toString() + ",00€";
+            document.getElementById("preu").value = preu - ((parseInt(preu) * 20) / 100).toString() + ",00€";
           } else {
             document.getElementById("preu").value = continents[i].paisos[x].preu + ",00€";
           }
           document.getElementById("descompte").addEventListener('change', (event) => {
             var descompte =  document.getElementById("descompte").checked;
             if (descompte) {
-              document.getElementById("preu").value = ((parseInt(preu) * 20) / 100).toString() + ",00€";
+              document.getElementById("preu").value = preu - ((parseInt(preu) * 20) / 100).toString() + ",00€";
             } else {
               document.getElementById("preu").value = continents[i].paisos[x].preu + ",00€";
             }
