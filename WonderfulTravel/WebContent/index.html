@@ -14,7 +14,9 @@
     </canvas>
     <script src="js/rellotge.js"></script>
     <h6 id="data"><script>fullDate();</script></h6>
-    <div class="inputs">
+
+    <form action="">
+      <div class="inputs">
         DATA: <input type="date" name="data"><br>
         DESTÍ: <label for="continent"></label>
 				 <select id="continent" name="continent"></select>
@@ -26,15 +28,17 @@
           </select><br>
             
           <script>omplirPais();</script>
-        PREU: <input type="text" id="preu" name="preu" placeholder="0.00€" disabled><br>
-        <script>omplirPreu();</script>
+        PREU: <input type="text" id="preu" name="preu" placeholder="00,00€" disabled><br>
+        <script>omplirPreuFoto();</script>
+        <div id="foto"></div>
         NOM: <input type="text" name="nom"><br>
         TELÈFON: <input type="text" name="telefon"><br>
         PERSONES: <input type="text" name="persones"><br>
         Descompte 20% <input type="checkbox" name="descompte"><br>
         <input type="submit" name="enviar" value="Afegir">
-    </div>
-
+      </div>
+    </form>
+  
     <div class="reserves">
         <h4>Reserves: </h4>
         <div class="reserva">
