@@ -1,0 +1,17 @@
+body {
+    margin: 25px;
+    background-color: rgba(165, 190, 238, 0.568);
+}
+
+.inputs input {
+    margin: 10px;
+    padding: 1px;
+}
+
+.reserva {
+    border: black 1px solid;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    background-color: rgba(93, 95, 199, 0.466);
+}

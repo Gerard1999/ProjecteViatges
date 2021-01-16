@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/estils.css">
+    <script src="js/destinacions.js"></script>
+    <script src="js/validacioFormulari.js"></script>
+    <title>Wonderful Travel</title>
+</head>
+<body>
+    <h1>Wonderful Travel!</h1>
+    <h3>RELLOTGE:</h3>
+    <canvas id="canvas" width="150" height="150">
+    </canvas>
+    <script src="js/rellotge.js"></script>
+    <h6 id="data"><script>fullDate();</script></h6>
+    <div class="inputs">
+        DATA: <input type="date" name="data"><br>
+        DESTÍ: <label for="continent"></label>
+				 <select id="continent" name="continent"></select>
+         <script>omplirContinents();</script>
+
+         <label for="pais"></label>
+          <select id="pais" name="pais">
+            <option disabled selected>Països</option>
+          </select><br>
+            
+          <script>omplirPais();</script>
+        PREU: <input type="text" id="preu" name="preu" placeholder="0.00€" disabled><br>
+        <script>omplirPreu();</script>
+        NOM: <input type="text" name="nom"><br>
+        TELÈFON: <input type="text" name="telefon"><br>
+        PERSONES: <input type="text" name="persones"><br>
+        Descompte 20% <input type="checkbox" name="descompte"><br>
+        <input type="submit" name="enviar" value="Afegir">
+    </div>
+
+    <div class="reserves">
+        <h4>Reserves: </h4>
+        <div class="reserva">
+          <h5>Reserva 1</h5>
+        </div>
+        <div class="reserva">
+          <h5>Reserva 1</h5>
+        </div>
+        <div class="reserva">
+          <h5>Reserva 1</h5>
+        </div>
+    </div>
+</body>
+</html>
