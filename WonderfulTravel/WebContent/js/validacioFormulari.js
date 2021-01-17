@@ -13,13 +13,13 @@ function omplirContinents(){
 function omplirPais(){
   document.getElementById("continent").addEventListener('change', (event) => {
     var llistaPais = "<option disabled selected>Països</option>";
-    var indexContinent = event.target.selectedIndex;
+    var indexContinent = event.target.selectedIndex - 1;
   
     for (let i = 0; i < continents.length; i++) {
       if (i == indexContinent) {
         for (let x = 0; x < continents[i].paisos.length; x++) {
-          var id = continents[i].paisos[x].id;
-          llistaPais += "<option value'" + continents[i].paisos[x].id + "'>" + continents[i].paisos[x].nom + "</option>";
+          var nom = continents[i].paisos[x].nom;
+          llistaPais += "<option value'" + nom + "'>" + nom + "</option>";
         }
       } 
     }
@@ -39,8 +39,7 @@ function omplirPreuFoto(){
         if (pais == paisSelect) {
           var preu = continents[i].paisos[x].preu;
           comprovaDescompte(preu)
-          document.getElementById("descompte").addEventListener('change', (event) => {
-            var descompte =  document.getElementById("descompte").checked;
+          document.getElementById("descompte").addEventListener('change', () => {
             comprovaDescompte(preu)
           });
           document.getElementById("foto").innerHTML = "<img height=250 src='" + continents[i].paisos[x].img + "'>";
