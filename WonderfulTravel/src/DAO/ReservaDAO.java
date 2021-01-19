@@ -1,29 +1,50 @@
-package ModelDAO;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-import COnnexio.Connexio;
+import DAO.Connexio;
 import model.Reserva;
 
 public class ReservaDAO {
 
-	Connexio cn = new Connexio();
-	Connection con;
-	PreparedStatement ps;
-	ResultSet rs;
-	
-	public ArrayList<Reserva> llegir() {
-		ArrayList<Reserva>list = new ArrayList<>();
+
+	public static ArrayList<Reserva> getReserves() throws SQLException {
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		ArrayList<Reserva> reserves = new ArrayList<Reserva>();
+		
+		try {
+			con = Connexio.getConnection();
+			ps = con.prepareStatement("SELECT * FROM reserves");
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				reserves.add(new Reserva(rs));
+			}
+			
+			return reserves;
+			
+		} finally {
+			con.close();
+			ps.close();
+			rs.close();
+			
+		}
+		
+		
+		
+		/*ArrayList<Reserva>list = new ArrayList<>();
 		String sql = "SELECT * FROM reserves";
 		
 		try	{
-			con = cn.getConnection();
+			con = Connexio.getConnection();
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
@@ -40,7 +61,7 @@ public class ReservaDAO {
 				
 				
 				
-				
+				System.out.println(reserva);
 				System.out.println(reserva.getNom());
 			}
 			
@@ -51,6 +72,6 @@ public class ReservaDAO {
 		} catch (SQLException e) {
 			
 		}
-		return list;
+		return list;*/
 	}
 }

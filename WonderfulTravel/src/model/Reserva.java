@@ -1,11 +1,12 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import ModelDAO.ReservaDAO;
 
-public class Reserva extends ReservaDAO {
+public class Reserva {
 	
 	int id;
 	Date data;
@@ -16,26 +17,17 @@ public class Reserva extends ReservaDAO {
 	float preu;
 	
 	
-	public Reserva(int id, Date data, String pais, String nom, int telefon, int persones, float preu) {
-		super();
-		this.setId(id);
-		this.setData(data);
-		this.setPais(pais);
-		this.setNom(nom);
-		this.setTelefon(telefon);
-		this.setPersones(persones);
-		this.setPreu(preu);
+	public Reserva(ResultSet resultSet) throws SQLException {
+		this.setId(resultSet.getInt("id"));
+		this.setData(resultSet.getDate("data"));
+		this.setPais(resultSet.getString("pais"));
+		this.setNom(resultSet.getString("nom"));
+		this.setTelefon(resultSet.getInt("telefon"));
+		this.setPersones(resultSet.getInt("persones"));
+		this.setPreu(resultSet.getFloat("preu"));
 	}
 	
-	public Reserva() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public static ArrayList<Reserva> ferLlistaReserves(){
-		Reserva reserva = new Reserva();
-		return reserva.llegir();
-		
-	}
 	
 	public int getId() {
 		return id;
