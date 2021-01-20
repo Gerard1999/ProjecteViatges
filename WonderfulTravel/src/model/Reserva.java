@@ -15,8 +15,9 @@ public class Reserva {
 	int telefon;
 	int persones;
 	float preu;
+	String foto;
 	
-	
+
 	public Reserva(ResultSet resultSet) throws SQLException {
 		this.setId(resultSet.getInt("id"));
 		this.setData(resultSet.getDate("data"));
@@ -25,10 +26,16 @@ public class Reserva {
 		this.setTelefon(resultSet.getInt("telefon"));
 		this.setPersones(resultSet.getInt("persones"));
 		this.setPreu(resultSet.getFloat("preu"));
+		this.setFoto(resultSet.getString("foto"));
 	}
 	
 
-	
+	public String getFoto() {
+		return foto;
+	}
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 	public int getId() {
 		return id;
 	}

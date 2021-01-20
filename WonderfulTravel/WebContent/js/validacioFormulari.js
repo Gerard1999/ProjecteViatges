@@ -1,5 +1,9 @@
 
 
+//document.getElementById("continent").setAttribute("required", "");
+//document.getElementById("nom").setAttribute("required", "");
+
+
 //Afegir els continents a la llista
 function omplirContinents(){
   var llistaContinents = "<option disabled selected>Continents</option>";
@@ -42,7 +46,7 @@ function omplirPreuFoto(){
           document.getElementById("descompte").addEventListener('change', () => {
             comprovaDescompte(preu)
           });
-          document.getElementById("foto").innerHTML = "<img height=250 src='" + continents[i].paisos[x].img + "'>";
+          document.getElementById("foto").innerHTML = "<img id='fotoPais' height=250 src='" + continents[i].paisos[x].img + "'>";
         }
       } 
     }

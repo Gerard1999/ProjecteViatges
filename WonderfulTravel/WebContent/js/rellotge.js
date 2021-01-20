@@ -87,3 +87,18 @@ function fullDate() {
 
     document.getElementById("data").innerHTML = day + " / " + month + " / " + year;
 }
+
+function dataReserva() {
+    var ara = new Date();
+    var day = ara.getDate().toString();
+    var month = ara.getMonth() + 1;
+    var year = ara.getFullYear().toString();
+
+    if (month < 10) {
+        month = "0" + month.toString();
+    } else {
+        month = month.toString();
+    }
+
+    document.getElementById("dataReserva").value = year + "-" + month + "-" + day;
+}   

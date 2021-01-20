@@ -14,14 +14,14 @@ import DAO.ReservaDAO;
 /**
  * Servlet implementation class Controlador
  */
-@WebServlet("/Controlador")
-public class Controlador extends HttpServlet {
+@WebServlet("/InserirDades")
+public class InserirDades extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Controlador() {
+    public InserirDades() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,13 +31,7 @@ public class Controlador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-			ReservaDAO.getReserves();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.getRequestDispatcher("home.jsp").forward(request, response);
+		
 	}
 
 	/**

@@ -8,10 +8,41 @@ body {
     padding: 1px;
 }
 
+#fotoPais:hover{
+    border-radius: 15px;
+    transform: scale(1.8,1.8);
+    display: block;
+    margin: auto;
+}
+
+#fotoPais{
+    transition: border-radius, transform, display, margin 1s;
+}
+
+.reserves {
+    width: 1000px;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+
 .reserva {
+	width: 250px;
     border: black 1px solid;
-    padding: 20px;
     margin: 20px;
-    display: inline-block;
+    border-radius: 10px;
     background-color: rgba(93, 95, 199, 0.466);
+    margin-bottom: 0;
+}
+
+.dadesReserva {
+	position: relative;
+	padding: 10px;
+}
+
+.fotoReserva{
+	object-fit: fill;
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px;
+	margin-bottom: 0;
 }
