@@ -63,3 +63,11 @@ function comprovaDescompte(preu){
   }
 }
 
+
+/*function omplirPreuFoto(){
+  document.getElementById("pais").addEventListener('change', (event) => {
+    
+  });
+}*/
+
+document.getElementById("telefon").setAttribute("pattern", "^[0-9]{9}$");

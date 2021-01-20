@@ -3,19 +3,21 @@ package model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 public class Reserva {
 	
-	int id;
-	Date data;
-	String pais;
-	String nom;
-	int telefon;
-	int persones;
-	float preu;
-	String foto;
+	private int id;
+	private Date data;
+	private String pais;
+	private String nom;
+	private int telefon;
+	private int persones;
+	private float preu;
+	private String foto;
 	
 
 	public Reserva(ResultSet resultSet) throws SQLException {
@@ -29,6 +31,17 @@ public class Reserva {
 		this.setFoto(resultSet.getString("foto"));
 	}
 	
+
+	public Reserva(HttpServletRequest request) {
+		this.setData(Date.valueOf(request.getParameter("data")));
+		this.setPais(request.getParameter("pais"));
+		this.setNom(request.getParameter("nom"));
+		this.setTelefon(Integer.parseInt(request.getParameter("telefon")));
+		this.setPersones(Integer.parseInt(request.getParameter("persones")));
+		this.setPreu(Float.parseFloat(request.getParameter("preu")));
+		this.setFoto(request.getParameter("foto"));
+	}
+
 
 	public String getFoto() {
 		return foto;

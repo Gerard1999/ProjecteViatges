@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.ReservaDAO;
+import model.Reserva;
 
 /**
  * Servlet implementation class Controlador
@@ -31,7 +32,7 @@ public class InserirDades extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 
 	/**
@@ -40,6 +41,12 @@ public class InserirDades extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		try {
+			ReservaDAO.AfegirReserves(new Reserva(request));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

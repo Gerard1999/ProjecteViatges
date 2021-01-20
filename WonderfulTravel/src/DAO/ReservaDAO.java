@@ -1,6 +1,7 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,41 +38,38 @@ public class ReservaDAO {
 			rs.close();
 			
 		}
+	}
+	
+	
+	public static void AfegirReserves(Reserva reserva) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
 		
-		
-		
-		/*ArrayList<Reserva>list = new ArrayList<>();
-		String sql = "SELECT * FROM reserves";
-		
-		try	{
+		try {
 			con = Connexio.getConnection();
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
+			ps = con.prepareStatement("INSERT INTO reserves (data, pais, nom, telefon, persones, preu, foto) "
+					+ "VALUES (?,?,?,?,?,?,?)");
 			
-			while(rs.next()) {
-				
-				Reserva reserva = new Reserva(
-						rs.getInt("id"),
-						rs.getDate("data"),
-						rs.getString("pais"),
-						rs.getString("nom"),
-						rs.getInt("telefon"),
-						rs.getInt("persones"),
-						rs.getFloat("preu"));
-				
-				
-				
-				System.out.println(reserva);
-				System.out.println(reserva.getNom());
-			}
+			ps.setDate(1, reserva.getData());
+			ps.setString(2, reserva.getPais());
+			ps.setString(3, reserva.getNom());
+			ps.setInt(4, reserva.getTelefon());
+			ps.setInt(5, reserva.getPersones());
+			ps.setFloat(6, reserva.getPreu());
+			ps.setString(7, "./images/japo.jpg");
 			
-			rs.close();
-			ps.close();
+			ps.executeUpdate();
+			
+		} finally {
 			con.close();
+			ps.close();
 			
-		} catch (SQLException e) {
-			
-		}
-		return list;*/
+		} 
 	}
 }
+		
+		
+		
+	
+	
+	

@@ -17,7 +17,7 @@
     <script src="js/rellotge.js"></script>
     <h6 id="data"><script>fullDate();</script></h6>
 
-    <form action="">
+    <form action="InserirDades" method="POST">
       <div class="inputs">
         DATA: <input type="date" name="data" id="dataReserva" ><script>dataReserva();</script><br>
         DESTÍ: <label for="continent"></label>
@@ -34,8 +34,8 @@
         <script>omplirPreuFoto();</script>
         <div id="foto"></div>
         NOM: <input type="text" name="nom" id="nom"><br>
-        TELÈFON: <input type="text" name="telefon"><br>
-        PERSONES: <input type="text" name="persones"><br>
+        TELÈFON: <input type="text" name="telefon" id="telefon"><br>
+        PERSONES: <input type="text" name="persones" id="persones"><br>
         Descompte 20% <input id="descompte" type="checkbox" name="descompte"><br>
         <input type="submit" name="enviar" value="Afegir">
       </div>
