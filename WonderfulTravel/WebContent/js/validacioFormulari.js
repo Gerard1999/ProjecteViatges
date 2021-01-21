@@ -35,6 +35,7 @@ function omplirPais(){
 //Omplir preu i foto un cop seleccionat el país
 function omplirPreuFoto(){
   document.getElementById("pais").addEventListener('change', (event) => {
+	  document.getElementById("errorPais").setAttribute("hidden", "");
     var paisSelect = event.target.value;
 
     for (let i = 0; i < continents.length; i++) {
@@ -57,17 +58,29 @@ function omplirPreuFoto(){
 function comprovaDescompte(preu){
   var descompte =  document.getElementById("descompte").checked;
   if (descompte) {
-    document.getElementById("preu").value = preu - ((parseInt(preu) * 20) / 100).toString() + ",00€";
+    document.getElementById("preu").value = preu - ((preu * 20) / 100);
   } else {
-    document.getElementById("preu").value = preu + ",00€";
+    document.getElementById("preu").value = preu;
   }
 }
 
 
-/*function omplirPreuFoto(){
-  document.getElementById("pais").addEventListener('change', (event) => {
-    
-  });
-}*/
+function validacio(){
+	var avui = new Date();
+  if (document.getElementById("continent").value == "Continents" ||
+		  document.getElementById("pais").value == "Països") {
+	  document.getElementById("errorPais").removeAttribute("hidden");
+	  alert("Afegeix una destinació");
+	  return false;
+  } else if (!document.getElementById("nom").value || 
+		  		!document.getElementById("telefon").value ||
+		  		!document.getElementById("persones").value){
+	  alert("No hi poden haver camps buits");
+	  return false;
+  } else if(document.getElementById("dataReserva") <= avui){
+	  alert("La data ha de ser superior a avui");
+  }
+}
 
-document.getElementById("telefon").setAttribute("pattern", "^[0-9]{9}$");
+//document.getElementById("telefon").setAttribute("pattern", "^[0-9]{9}$");
+

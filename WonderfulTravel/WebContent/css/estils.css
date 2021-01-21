@@ -46,3 +46,21 @@ body {
 	border-bottom-left-radius:10px;
 	margin-bottom: 0;
 }
+
+#errorPais {
+    color: red;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: -15px;
+}
+
+.paperera{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.fotoPaperera {
+	background-image: url(../images/paperera.png);
+	background-size: 20px 20px;
+}

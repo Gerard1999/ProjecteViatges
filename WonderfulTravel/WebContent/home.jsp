@@ -17,7 +17,7 @@
     <script src="js/rellotge.js"></script>
     <h6 id="data"><script>fullDate();</script></h6>
 
-    <form action="InserirDades" method="POST">
+    <form action="InserirDades" method="POST" onsubmit="return validacio()">
       <div class="inputs">
         DATA: <input type="date" name="data" id="dataReserva" ><script>dataReserva();</script><br>
         DESTÍ: <label for="continent"></label>
@@ -28,9 +28,10 @@
           <select id="pais" name="pais">
             <option disabled selected>Països</option>
           </select><br>
+          <p id="errorPais" hidden>Afegeix una destinació</p>
             
           <script>omplirPais();</script>
-        PREU: <input type="text" id="preu" name="preu" placeholder="00,00€" disabled><br>
+        PREU: <input type="number" id="preu" name="preu" placeholder="00,00€" disabled>
         <script>omplirPreuFoto();</script>
         <div id="foto"></div>
         NOM: <input type="text" name="nom" id="nom"><br>
@@ -45,13 +46,15 @@
 		<c:forEach var="reserva" items="${reservaLlista}">
 			<div class="reserva">
 				<div class="dadesReserva">
+				<c:out value="${reserva.id}"></c:out><br>
 					<c:out value="${reserva.data}"></c:out><br>
 					<c:out value="${reserva.pais}"></c:out><br>
 					<c:out value="${reserva.nom}"></c:out><br>
 					<c:out value="${reserva.telefon}"></c:out><br>
 					<c:out value="${reserva.persones} persones"></c:out><br>
 					<c:out value="${reserva.preu}0€"></c:out>
-				</div>
+					<div class="paperera"><a href="" class="fotoPaperera">M</a></div>
+        </div>
 				<div>
 					<img class="fotoReserva" src="${reserva.foto}" width="250px"></a>
 				</div>
