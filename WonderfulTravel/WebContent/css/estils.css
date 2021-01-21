@@ -10,13 +10,16 @@ body {
 
 #fotoPais:hover{
     border-radius: 15px;
-    transform: scale(1.8,1.8);
+    transform: scale(1.5,1.5);
     display: block;
     margin: auto;
 }
 
 #fotoPais{
-    transition: border-radius, transform, display, margin 1s;
+    transition: border-radius 1s;
+    transition: margin 1s;
+    transition: transform 1s;
+    transition: display 1s
 }
 
 .reserves {

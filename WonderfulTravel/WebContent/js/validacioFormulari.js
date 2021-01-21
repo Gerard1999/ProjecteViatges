@@ -72,7 +72,11 @@ function validacio(){
 		    document.getElementById("pais").value == "Països") {
       document.getElementById("errorPais").removeAttribute("hidden");
       return false;
-  } else if (!document.getElementById("nom").value) {
+  } else{
+    document.getElementById("errorPais").setAttribute("hidden", "");
+  }
+  
+  if (!document.getElementById("nom").value) {
       document.getElementById("errorNom").removeAttribute("hidden");
       return false;
   } else if (!document.getElementById("telefon").value){
