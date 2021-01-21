@@ -47,7 +47,8 @@ function omplirPreuFoto(){
           document.getElementById("descompte").addEventListener('change', () => {
             comprovaDescompte(preu)
           });
-          document.getElementById("foto").innerHTML = "<img id='fotoPais' height=250 src='" + continents[i].paisos[x].img + "'>";
+          document.getElementById("fotografia").innerHTML = "<img id='fotoPais' height=250 src='" + continents[i].paisos[x].img + "'>";
+          document.getElementById("foto").value = continents[i].paisos[x].img;
         }
       } 
     }
@@ -68,19 +69,19 @@ function comprovaDescompte(preu){
 function validacio(){
 	var avui = new Date();
   if (document.getElementById("continent").value == "Continents" ||
-		  document.getElementById("pais").value == "Països") {
-	  document.getElementById("errorPais").removeAttribute("hidden");
-	  alert("Afegeix una destinació");
-	  return false;
-  } else if (!document.getElementById("nom").value || 
-		  		!document.getElementById("telefon").value ||
-		  		!document.getElementById("persones").value){
-	  alert("No hi poden haver camps buits");
-	  return false;
-  } else if(document.getElementById("dataReserva") <= avui){
-	  alert("La data ha de ser superior a avui");
+		    document.getElementById("pais").value == "Països") {
+      document.getElementById("errorPais").removeAttribute("hidden");
+      return false;
+  } else if (!document.getElementById("nom").value) {
+      document.getElementById("errorNom").removeAttribute("hidden");
+      return false;
+  } else if (!document.getElementById("telefon").value){
+      document.getElementById("errorTelefon").removeAttribute("hidden");
+      return false;
+  } else if (!document.getElementById("persones").value){
+      document.getElementById("errorPersones").removeAttribute("hidden");
+      return false;
+  }else if(document.getElementById("dataReserva") <= avui){
+	    alert("La data ha de ser superior a avui");
   }
 }
-
-//document.getElementById("telefon").setAttribute("pattern", "^[0-9]{9}$");
-

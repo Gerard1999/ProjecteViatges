@@ -55,7 +55,26 @@ public class ReservaDAO {
 			ps.setInt(4, reserva.getTelefon());
 			ps.setInt(5, reserva.getPersones());
 			ps.setFloat(6, reserva.getPreu());
-			ps.setString(7, "./images/japo.jpg");
+			ps.setString(7, reserva.getFoto());
+			
+			ps.executeUpdate();
+			
+		} finally {
+			con.close();
+			ps.close();
+			
+		} 
+	}
+	
+	public static void EsborrarReserva(int id) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		try {
+			con = Connexio.getConnection();
+			ps = con.prepareStatement("DELETE FROM reserves WHERE id = ?");
+			
+			ps.setInt(1, id);
 			
 			ps.executeUpdate();
 			

@@ -10,19 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.ReservaDAO;
-import model.Reserva;
 
 /**
- * Servlet implementation class Controlador
+ * Servlet implementation class EsborrarRegistre
  */
-@WebServlet("/InserirDades")
-public class InserirDades extends HttpServlet {
+@WebServlet("/EsborrarRegistre")
+public class EsborrarRegistre extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InserirDades() {
+    public EsborrarRegistre() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +31,14 @@ public class InserirDades extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("ObtenirReserves").forward(request, response);
+		int id = Integer.parseInt(request.getParameter("idreserva"));
+		try {
+			ReservaDAO.EsborrarReserva(id);
+			response.sendRedirect("ObtenirReserves");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -41,12 +47,6 @@ public class InserirDades extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		try {
-			ReservaDAO.AfegirReserves(new Reserva(request));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }

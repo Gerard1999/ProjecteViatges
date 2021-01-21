@@ -47,20 +47,28 @@ body {
 	margin-bottom: 0;
 }
 
-#errorPais {
+#errorPais, #errorNom, #errorTelefon, #errorPersones{
     color: red;
     font-weight: 500;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: -15px;
+    margin: 5px;
 }
 
 .paperera{
 	position: absolute;
-	top: 0px;
-	right: 0px;
+	top: 10px;
+	right: 10px;
 }
 
 .fotoPaperera {
-	background-image: url(../images/paperera.png);
-	background-size: 20px 20px;
+	/*background-image: url(../images/paperera.png);
+	background-size: 20px 20px;*/
+	text-decoration: none;
+	color: rgb(255, 39, 39);
+}
+
+.fotoPaperera:hover {
+    font-size: 18px;
+    font-weight: 600;
+	color: rgb(211, 103, 103);
 }

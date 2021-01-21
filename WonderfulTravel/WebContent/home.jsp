@@ -21,7 +21,7 @@
       <div class="inputs">
         DATA: <input type="date" name="data" id="dataReserva" ><script>dataReserva();</script><br>
         DESTÍ: <label for="continent"></label>
-				 <select id="continent" name="continent">Hola</select>
+				 <select id="continent" name="continent"></select>
          <script>omplirContinents();</script>
 
          <label for="pais"></label>
@@ -31,12 +31,16 @@
           <p id="errorPais" hidden>Afegeix una destinació</p>
             
           <script>omplirPais();</script>
-        PREU: <input type="number" id="preu" name="preu" placeholder="00,00€" disabled>
+        PREU: <input type="number" id="preu" name="preu" readonly placeholder="00.00€">
         <script>omplirPreuFoto();</script>
-        <div id="foto"></div>
+        <div id="fotografia"></div>
+        <input type="text" id="foto" name="foto" hidden></input>
         NOM: <input type="text" name="nom" id="nom"><br>
-        TELÈFON: <input type="text" name="telefon" id="telefon"><br>
+        <p id="errorNom" hidden>Afegeix una nom</p>
+        TELÈFON: <input type="number" name="telefon" id="telefon" maxlength="9"><br>
+        <p id="errorTelefon" hidden>Afegeix un telèfon</p>
         PERSONES: <input type="text" name="persones" id="persones"><br>
+        <p id="errorPersones" hidden>Afegeix nombre de persones</p>
         Descompte 20% <input id="descompte" type="checkbox" name="descompte"><br>
         <input type="submit" name="enviar" value="Afegir">
       </div>
@@ -44,17 +48,16 @@
   	<h4>Reserves: </h4>
     <div class="reserves">
 		<c:forEach var="reserva" items="${reservaLlista}">
-			<div class="reserva">
+			<div class="reserva" name="${reserva.id}">
 				<div class="dadesReserva">
-				<c:out value="${reserva.id}"></c:out><br>
 					<c:out value="${reserva.data}"></c:out><br>
 					<c:out value="${reserva.pais}"></c:out><br>
 					<c:out value="${reserva.nom}"></c:out><br>
 					<c:out value="${reserva.telefon}"></c:out><br>
 					<c:out value="${reserva.persones} persones"></c:out><br>
 					<c:out value="${reserva.preu}0€"></c:out>
-					<div class="paperera"><a href="" class="fotoPaperera">M</a></div>
-        </div>
+					<div class="paperera"><a href="EsborrarRegistre?idreserva=${reserva.id}" class="fotoPaperera">Esborrar</a></div>
+        		</div>
 				<div>
 					<img class="fotoReserva" src="${reserva.foto}" width="250px"></a>
 				</div>
