@@ -22,7 +22,7 @@ public class ReservaDAO {
 		
 		try {
 			con = Connexio.getConnection();
-			ps = con.prepareStatement("SELECT * FROM reserves ORDER BY data DESC");
+			ps = con.prepareStatement("SELECT * FROM reserves ORDER BY data");
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {

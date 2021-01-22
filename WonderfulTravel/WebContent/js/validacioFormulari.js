@@ -1,7 +1,6 @@
 
 
 //document.getElementById("continent").setAttribute("required", "");
-//document.getElementById("nom").setAttribute("required", "");
 
 
 //Afegir els continents a la llista
@@ -68,24 +67,55 @@ function comprovaDescompte(preu){
 
 function validacio(){
 	var avui = new Date();
-  if (document.getElementById("continent").value == "Continents" ||
-		    document.getElementById("pais").value == "Països") {
-      document.getElementById("errorPais").removeAttribute("hidden");
-      return false;
-  } else{
-    document.getElementById("errorPais").setAttribute("hidden", "");
-  }
+	var any = avui.getFullYear();
+	var mes = avui.getMonth()+1;
+	var dia = avui.getDate();
+	var data_posada = document.getElementById("dataReserva").value.split("-");
+	
+	if(parseInt(data_posada[0]) <= any && parseInt(data_posada[1]) <= mes && parseInt(data_posada[2]) < dia){
+		document.getElementById("errorData").removeAttribute("hidden");
+		return false;
+	} else{
+	    document.getElementById("errorData").setAttribute("hidden", "");
+	}
+	
+	if (document.getElementById("continent").value == "Continents" || document.getElementById("pais").value == "Països") {
+		document.getElementById("errorPais").removeAttribute("hidden");
+		return false;
+	} else{
+		document.getElementById("errorPais").setAttribute("hidden", "");
+	}	
   
   if (!document.getElementById("nom").value) {
       document.getElementById("errorNom").removeAttribute("hidden");
+      document.getElementById("nom").setAttribute("focus", "");
       return false;
-  } else if (!document.getElementById("telefon").value){
+  } else{
+    document.getElementById("errorNom").setAttribute("hidden", "");
+  }
+  
+  if (!document.getElementById("telefon").value){
       document.getElementById("errorTelefon").removeAttribute("hidden");
       return false;
-  } else if (!document.getElementById("persones").value){
+  } else{
+    document.getElementById("errorTelefon").setAttribute("hidden", "");
+  }
+  
+  if (!document.getElementById("persones").value){
       document.getElementById("errorPersones").removeAttribute("hidden");
       return false;
-  }else if(document.getElementById("dataReserva") <= avui){
+  }else{
+	    document.getElementById("errorPersones").setAttribute("hidden", "");
+}
+  if(document.getElementById("dataReserva") <= avui){
 	    alert("La data ha de ser superior a avui");
   }
+  
+  
 }
+
+
+
+
+
+

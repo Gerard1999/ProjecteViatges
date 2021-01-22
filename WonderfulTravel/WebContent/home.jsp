@@ -20,6 +20,7 @@
     <form action="InserirDades" method="POST" onsubmit="return validacio()">
       <div class="inputs">
         DATA: <input type="date" name="data" id="dataReserva" ><script>dataReserva();</script><br>
+        <p id="errorData" hidden>La data ha de ser a partir d'avui</p>
         DESTÍ: <label for="continent"></label>
 				 <select id="continent" name="continent"></select>
          <script>omplirContinents();</script>
@@ -36,7 +37,7 @@
         <div id="fotografia"></div>
         <input type="text" id="foto" name="foto" hidden></input>
         NOM: <input type="text" name="nom" id="nom"><br>
-        <p id="errorNom" hidden>Afegeix una nom</p>
+        <p id="errorNom" hidden>Afegeix un nom</p>
         TELÈFON: <input type="number" name="telefon" id="telefon" maxlength="9"><br>
         <p id="errorTelefon" hidden>Afegeix un telèfon</p>
         PERSONES: <input type="text" name="persones" id="persones"><br>

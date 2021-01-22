@@ -50,7 +50,7 @@ body {
 	margin-bottom: 0;
 }
 
-#errorPais, #errorNom, #errorTelefon, #errorPersones{
+#errorPais, #errorNom, #errorTelefon, #errorPersones, #errorData{
     color: red;
     font-weight: 500;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
