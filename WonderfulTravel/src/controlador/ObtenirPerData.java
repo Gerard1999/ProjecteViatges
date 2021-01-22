@@ -12,17 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.ReservaDAO;
 
 /**
- * Servlet implementation class EsborrarRegistre
+ * Servlet implementation class ServletDeProva
  */
-@WebServlet("/EsborrarRegistre")
-public class EsborrarRegistre extends HttpServlet {
+@WebServlet("/ObtenirPerData")
+public class ObtenirPerData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
-     * @see HttpServlet#HttpServlet()
+     * Default constructor. 
      */
-    public EsborrarRegistre() {
-        super();
+    public ObtenirPerData() {
         // TODO Auto-generated constructor stub
     }
 
@@ -31,10 +30,9 @@ public class EsborrarRegistre extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("idreserva"));
 		try {
-			ReservaDAO.EsborrarReserva(id);
-			response.sendRedirect("ObtenirPerData");
+			request.setAttribute("reservaLlista", ReservaDAO.getReservesData());
+			request.getRequestDispatcher("home.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

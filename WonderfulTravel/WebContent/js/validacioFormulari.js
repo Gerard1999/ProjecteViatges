@@ -107,10 +107,12 @@ function validacio(){
   }else{
 	    document.getElementById("errorPersones").setAttribute("hidden", "");
 }
-  if(document.getElementById("dataReserva") <= avui){
-	    alert("La data ha de ser superior a avui");
+  if(document.getElementById("telefon").value.length != 9){
+	  document.getElementById("errorTelefonNum").removeAttribute("hidden");
+	  return false;
+  } else {
+	  document.getElementById("errorTelefonNum").setAttribute("hidden", "");
   }
-  
   
 }
 

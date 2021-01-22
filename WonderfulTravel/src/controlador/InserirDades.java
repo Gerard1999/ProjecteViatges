@@ -32,7 +32,7 @@ public class InserirDades extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("ObtenirReserves").forward(request, response);
+		response.sendRedirect("ObtenirPerData");
 	}
 
 	/**

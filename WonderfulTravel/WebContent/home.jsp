@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/estils.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="js/destinacions.js"></script>
     <script src="js/validacioFormulari.js"></script>
     <title>Wonderful Travel</title>
@@ -39,14 +41,19 @@
         NOM: <input type="text" name="nom" id="nom"><br>
         <p id="errorNom" hidden>Afegeix un nom</p>
         TELÈFON: <input type="number" name="telefon" id="telefon" maxlength="9"><br>
+        <p id="errorTelefonNum" hidden>El telèfon ha de tenir 9 dígits</p>
         <p id="errorTelefon" hidden>Afegeix un telèfon</p>
-        PERSONES: <input type="text" name="persones" id="persones"><br>
+        PERSONES: <input type="number" name="persones" id="persones"><br>
         <p id="errorPersones" hidden>Afegeix nombre de persones</p>
         Descompte 20% <input id="descompte" type="checkbox" name="descompte"><br>
         <input type="submit" name="enviar" value="Afegir">
       </div>
     </form>
   	<h4>Reserves: </h4>
+  	<ul>
+  		<li><a class="ordenacio" href="ObtenirPerData">Ordenar per data</a></li>
+  		<li><a class="ordenacio" href="ObtenirPerPais">Ordenar per país</a></li>
+  	</ul>
     <div class="reserves">
 		<c:forEach var="reserva" items="${reservaLlista}">
 			<div class="reserva" name="${reserva.id}">
@@ -60,7 +67,7 @@
 					<div class="paperera"><a href="EsborrarRegistre?idreserva=${reserva.id}" class="fotoPaperera">Esborrar</a></div>
         		</div>
 				<div>
-					<img class="fotoReserva" src="${reserva.foto}" width="250px"></a>
+					<img class="fotoReserva" src="${reserva.foto}" height="200px" width="300px"></a>
 				</div>
 			</div>
 		</c:forEach>

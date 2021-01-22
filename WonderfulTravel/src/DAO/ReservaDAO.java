@@ -12,7 +12,7 @@ import model.Reserva;
 public class ReservaDAO {
 
 
-	public static ArrayList<Reserva> getReserves() throws SQLException {
+	public static ArrayList<Reserva> getReservesData() throws SQLException {
 		
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -23,6 +23,34 @@ public class ReservaDAO {
 		try {
 			con = Connexio.getConnection();
 			ps = con.prepareStatement("SELECT * FROM reserves ORDER BY data");
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				reserves.add(new Reserva(rs));
+			}
+			
+			return reserves;
+			
+		} finally {
+			con.close();
+			ps.close();
+			rs.close();
+			
+		}
+	}
+	
+	
+public static ArrayList<Reserva> getReservesPais() throws SQLException {
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		ArrayList<Reserva> reserves = new ArrayList<Reserva>();
+		
+		try {
+			con = Connexio.getConnection();
+			ps = con.prepareStatement("SELECT * FROM reserves ORDER BY pais");
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {

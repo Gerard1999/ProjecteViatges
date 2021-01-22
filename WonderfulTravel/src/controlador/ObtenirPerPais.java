@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import DAO.ReservaDAO;
 
 /**
- * Servlet implementation class ServletDeProva
+ * Servlet implementation class ObtenirPerPais
  */
-@WebServlet("/ObtenirReserves")
-public class ObtenirReserves extends HttpServlet {
+@WebServlet("/ObtenirPerPais")
+public class ObtenirPerPais extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public ObtenirReserves() {
+    public ObtenirPerPais() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -31,12 +32,21 @@ public class ObtenirReserves extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			request.setAttribute("reservaLlista", ReservaDAO.getReserves());
+			request.setAttribute("reservaLlista", ReservaDAO.getReservesPais());
 			request.getRequestDispatcher("home.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		/*int id = Integer.parseInt(request.getParameter("idreserva"));
+		try {
+			ReservaDAO.EsborrarReserva(id);
+			response.sendRedirect("ObtenirReserves");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 	}
 
 	/**
