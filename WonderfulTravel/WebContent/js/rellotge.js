@@ -1,3 +1,7 @@
+//Gerard López i Sergi Alcòria
+
+
+//Variables per crear el canvas
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 var radi = canvas.height / 2;
@@ -5,6 +9,8 @@ context.translate(radi, radi);
 radi = radi * 0.90
 setInterval(dibuixaRellotge, 1000);
 
+
+//Dibuixa el rellotge a partir de les funcions de sota
 function dibuixaRellotge() {
     dibuixaCara(context, radi);
     dibuixaNombres(context, radi);
@@ -12,6 +18,8 @@ function dibuixaRellotge() {
     
 }
 
+
+//Funció per dibuixar el fons del rellotge
 function dibuixaCara(context, radi) {
     var gradient;
     context.beginPath();
@@ -31,6 +39,8 @@ function dibuixaCara(context, radi) {
     context.fill();
 }
 
+
+//Funció per afegir els números de l'1 al 12 al canvas
 function dibuixaNombres(context, radi) {
     var ang;
     var num;
@@ -49,6 +59,7 @@ function dibuixaNombres(context, radi) {
     }
 }
 
+//Dibuixa les agulles del rellotge segons hores, minuts i segons
 function dibuixaTemps(context, radi) {
     var ara = new Date();
     var hora = ara.getHours();
@@ -79,6 +90,8 @@ function dibuixa(context, pos, longitud, amplada) {
     context.rotate(-pos);
 }
 
+
+//Agafa la data actual i la passa sota el rellotge
 function fullDate() {
     var ara = new Date();
     var dia = ara.getDate();
@@ -88,6 +101,7 @@ function fullDate() {
     document.getElementById("data").innerHTML = dia + " / " + mes + " / " + any;
 }
 
+//Agafa la data per afegir-la al input data del formulari
 function dataReserva() {
     var ara = new Date();
     var dia = ara.getDate().toString();

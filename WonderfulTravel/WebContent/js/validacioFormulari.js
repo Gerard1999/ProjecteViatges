@@ -1,9 +1,7 @@
+//Gerard López i Sergi Alcòria
 
-
-//document.getElementById("continent").setAttribute("required", "");
-
-
-//Afegir els continents a la llista
+//Afegir els continents a la llista mitjançant un bucle for per 
+//recórrer l'objecte continents del document destinacions.js
 function omplirContinents(){
   var llistaContinents = "<option disabled selected>Continents</option>";
   for (var i = 0; i < continents.length; i++) {
@@ -12,7 +10,8 @@ function omplirContinents(){
   document.getElementById("continent").innerHTML = llistaContinents;
 }
 
-//Omplir països a la llista un cop seleccionat el continent
+//Omplir països a la llista un cop seleccionat el continent mitjançant
+//bucles for per recórrer l'objecte continents del document destinacions.js
 function omplirPais(){
   document.getElementById("continent").addEventListener('change', (event) => {
     var llistaPais = "<option disabled selected>Països</option>";
@@ -31,7 +30,8 @@ function omplirPais(){
   });
 }
 
-//Omplir preu i foto un cop seleccionat el país
+//Omplir preu i foto un cop seleccionat el país mitjançant bucles for per
+//recórrer l'objecte continents del document destinacions.js
 function omplirPreuFoto(){
   document.getElementById("pais").addEventListener('change', (event) => {
 	  document.getElementById("errorPais").setAttribute("hidden", "");
@@ -54,7 +54,8 @@ function omplirPreuFoto(){
   });
 }
 
-
+//Funció per comprovar si està marcat el checkbox de descompte, si és així,
+// aplica el 20% del tota del preu de la reserva.
 function comprovaDescompte(preu){
   var descompte =  document.getElementById("descompte").checked;
   if (descompte) {
@@ -64,7 +65,9 @@ function comprovaDescompte(preu){
   }
 }
 
-
+//Funció per validar el formulari, compara dates, comprova els camps buits i
+// retorna false si no és correcta algun camp. S'utilitza l'atribut hidden per
+// amagar i fer sortir els missatges d'error
 function validacio(){
 	var avui = new Date();
 	var any = avui.getFullYear();
